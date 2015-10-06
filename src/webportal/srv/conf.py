@@ -11,10 +11,12 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
+ROOT_URLCONF = 'srv.urls'
+WSGI_APPLICATION = 'srv.wsgi.application'
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'pub')
-print STATIC_ROOT
+STATICFILES_DIRS = (os.path.join(PROJECT_DIR, 'pub'),)
+
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -36,8 +38,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'srv.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -53,9 +53,6 @@ TEMPLATES = [
         },
     },
 ]
-
-WSGI_APPLICATION = 'srv.wsgi.application'
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
