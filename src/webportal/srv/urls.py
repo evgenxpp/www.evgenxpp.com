@@ -1,7 +1,6 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 from webportal.apps.main import urls
-from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
