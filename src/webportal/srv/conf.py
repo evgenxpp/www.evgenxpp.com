@@ -24,7 +24,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'webportal.apps.main',
+    'webportal.app',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -56,6 +56,6 @@ TEMPLATES = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(PROJECT_DIR, 'db', 'db.sqlite3'),
     }
 }
