@@ -1,7 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import User
+from webportal.lib.ModelHelpers import make_owner, make_created_datetime
 
 
+@make_owner()
+@make_created_datetime()
 class TaskTable(models.Model):
     TypeChoice = (
         (1, ''),
@@ -10,14 +12,11 @@ class TaskTable(models.Model):
         (4, ''),
     )
 
-    Owner = models.ForeignKey(User)
-    CreatedDateTime = models.DateTimeField(auto_now=True)
     Parent = models.ForeignKey('self')
     Shared = models.BooleanField()
     Type = models.IntegerField(choices=TypeChoice)
-    Name = models.CharField()
+    Name = models.CharField(max_length=255)
     Description = models.TextField()
     PlanDate = models.DateField()
     Priority = models.SmallIntegerField()
     TechnicalInformation = models.TextField()
-
