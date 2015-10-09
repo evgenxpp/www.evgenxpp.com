@@ -1,8 +1,8 @@
 from django.db import models
-from webportal.lib.ModelHelpers import make_owner, make_created_datetime
+from webportal.lib.ModelHelpers import make_created_user, make_created_datetime
 
 
-@make_owner()
+@make_created_user()
 @make_created_datetime()
 class TaskTable(models.Model):
     TypeChoice = (
@@ -20,3 +20,5 @@ class TaskTable(models.Model):
     PlanDate = models.DateField()
     Priority = models.SmallIntegerField()
     TechnicalInformation = models.TextField()
+    rrrr = models.TextField()
+
